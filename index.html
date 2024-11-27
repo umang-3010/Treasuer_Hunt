@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Code Entry</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .logo {
+      margin-top: 20px;
+    }
+
+    .logo img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    .title {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffd700, 0 0 16px #ff8c00, 0 0 32px #ff4500;
+      margin: 20px 0;
+      letter-spacing: 2px;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      border: 2px solid #ffffff;
+      border-radius: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #00adb5;
+      text-shadow: 0 0 5px #00adb5, 0 0 10px #007a87;
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      font-size: 16px;
+      width: 85%;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #00adb5;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #007a87;
+      transform: scale(1.1);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .error {
+      color: #ff4d4d;
+    }
+
+    .success {
+      color: #21eb8c;
+    }
+
+    #clue {
+      margin-top: 20px;
+      display: none;
+      padding: 15px;
+      border: 1px solid #21eb8c;
+      border-radius: 5px;
+      background: rgba(33, 235, 140, 0.1);
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      color: #21eb8c;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #newSecretKey {
+      margin-top: 20px;
+      display: none;
+      padding: 15px;
+      border: 1px solid #ffd700;
+      border-radius: 5px;
+      background: rgba(255, 215, 0, 0.1);
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      color: #ffd700;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="logo of techclub.png" alt="Tech Geeks Logo">
+  </div>
+  <div class="title">✨ NIRVANA TECH FEST <br> TREASURE HUNT ✨</div>
+  <div class="container">
+    <h2>🔒 Enter the Secret Code</h2>
+    <input type="text" id="codeInput" placeholder="Enter code">
+    <button onclick="checkCode()">Submit</button>
+    <div class="message" id="message"></div>
+    <div id="clue">✨ Clue: "Where lectures stretch as far as the eye,
+      A classroom that makes you question 'why?'
+      Seek the one labeled without gate..
+      The longest room—don’t be late!"</div>
+    <div id="newSecretKey">🔑 New Secret Key: 98765</div>
+  </div>
+
+  <script>
+    const correctCode = "12345"; // Replace this with your desired code
+    const newSecretKey = "98765"; // New secret key to display
+
+    function checkCode() {
+      const userCode = document.getElementById("codeInput").value;
+      const message = document.getElementById("message");
+      const clue = document.getElementById("clue");
+      const newKey = document.getElementById("newSecretKey");
+
+      if (userCode === correctCode) {
+        message.textContent = "Correct! The clue and new secret key are revealed below:";
+        message.className = "message success";
+        clue.style.display = "block"; // Show the clue
+        newKey.style.display = "block"; // Show the new secret key
+      } else {
+        message.textContent = "Wrong code. Try again!";
+        message.className = "message error";
+        clue.style.display = "none"; // Hide the clue
+        newKey.style.display = "none"; // Hide the new secret key
+      }
+    }
+  </script>
+</body>
+</html
